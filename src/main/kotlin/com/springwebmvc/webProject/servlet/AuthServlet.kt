@@ -7,8 +7,7 @@ import javax.servlet.http.HttpServlet
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
-@WebServlet(name = "AuthServlet",
-urlPatterns = ["/login"])
+@WebServlet(name = "AuthServlet", urlPatterns = ["/login"])
 class AuthServlet: HttpServlet() {
     private val username = "admin"
     private val password = "password"

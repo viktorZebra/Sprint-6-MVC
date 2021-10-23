@@ -1,6 +1,7 @@
 package com.springwebmvc.webProject.repository
 
 import com.springwebmvc.webProject.model.AddressBookModel
+import org.springframework.stereotype.Component
 import java.util.concurrent.ConcurrentHashMap
 
 class AddressBookRepository(private val addressBook: ConcurrentHashMap<Int, AddressBookModel>){
@@ -55,7 +56,7 @@ class AddressBookRepository(private val addressBook: ConcurrentHashMap<Int, Addr
                     continue
             }
 
-            resultSearch[resultSearch.size] = v
+            resultSearch[k] = v
         }
 
         return resultSearch

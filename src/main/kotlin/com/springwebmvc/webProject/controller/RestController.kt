@@ -18,10 +18,10 @@ class RestController @Autowired constructor(val addressBookService: AddressBookS
     fun addAddress(@RequestBody addressBook: AddressBookModel): ResponseEntity<AddressBookModel> {
         addressBookService.addNewEntry(addressBook)
 
-        return ResponseEntity(addressBook, HttpStatus.OK)
+        return ResponseEntity(addressBook, HttpStatus.CREATED)
     }
 
-    @GetMapping("/list")
+    @PostMapping("/list")
     fun getAddress(@RequestBody allRequestParams: Map<String, String>): ResponseEntity<ConcurrentHashMap<Int, AddressBookModel>> {
         val searchResult = addressBookService.getAddressWithParams(allRequestParams)
 
