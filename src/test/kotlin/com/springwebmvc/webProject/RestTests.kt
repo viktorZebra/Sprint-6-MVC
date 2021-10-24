@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.boot.web.server.LocalServerPort
+import org.springframework.core.ParameterizedTypeReference
 import org.springframework.http.*
 import org.springframework.util.LinkedMultiValueMap
 import org.springframework.util.MultiValueMap
@@ -83,12 +84,12 @@ class RestTests {
 			url("api/list"),
 			HttpMethod.POST,
 			HttpEntity(parameter, headers),
-			ConcurrentHashMap::class.java
+			object : ParameterizedTypeReference<ConcurrentHashMap<Int, AddressBookModel>>() {}
 		)
 
 		assertEquals(HttpStatus.OK, response.statusCode)
 		assertNotNull(response.body)
-		print(response)
+		assertEquals("diman", response.body!![1]!!.name)
 	}
 
 	@Test
@@ -97,12 +98,13 @@ class RestTests {
 			url("/api/{id}/view"),
 			HttpMethod.GET,
 			HttpEntity(null, headers),
-			ConcurrentHashMap::class.java,
+			object : ParameterizedTypeReference<ConcurrentHashMap<Int, AddressBookModel>>() {},
 			0
 		)
 
 		assertEquals(HttpStatus.OK, response.statusCode)
 		assertNotNull(response.body)
+		assertEquals("artem", response.body!![0]!!.name)
 	}
 
 	@Test
@@ -123,19 +125,17 @@ class RestTests {
 
 	@Test
 	fun deleteAddress() {
-		val emptyAddress = ConcurrentHashMap<Int, AddressBookModel>()
-
 		val response = restTemplate.exchange(
 			url("/api/{id}/delete"),
 			HttpMethod.DELETE,
 			HttpEntity(null, headers),
 			AddressBookModel::class.java,
-			3
+			0
 		)
 
 		assertEquals(HttpStatus.OK, response.statusCode)
 		assertNotNull(response.body)
-		assertEquals(service.getAddressWithParams(mapOf("name" to "max")), emptyAddress)
+		assertThat(service.getAddressWithParams(mapOf("name" to "artem")).isEmpty())
 	}
 
 }
