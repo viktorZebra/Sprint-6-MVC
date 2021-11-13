@@ -1,11 +1,10 @@
 package com.springwebmvc.webProject.controller
 
-import com.springwebmvc.webProject.model.AddressBookModel
+import com.springwebmvc.webProject.DAO.AddressBookModel
 import com.springwebmvc.webProject.service.AddressBookService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.bind.annotation.RestController
 import java.util.concurrent.ConcurrentHashMap

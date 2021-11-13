@@ -1,6 +1,6 @@
 package com.springwebmvc.webProject.service
 
-import com.springwebmvc.webProject.model.AddressBookModel
+import com.springwebmvc.webProject.DAO.AddressBookModel
 import com.springwebmvc.webProject.repository.AddressBookRepository
 import org.springframework.stereotype.Service
 import java.util.concurrent.ConcurrentHashMap

@@ -1,6 +1,6 @@
 package com.springwebmvc.webProject
 
-import com.springwebmvc.webProject.model.AddressBookModel
+import com.springwebmvc.webProject.DAO.AddressBookModel
 import com.springwebmvc.webProject.service.AddressBookService
 import org.hamcrest.core.StringContains.containsString
 import org.junit.jupiter.api.BeforeEach

@@ -1,4 +1,4 @@
-package com.springwebmvc.webProject.model
+package com.springwebmvc.webProject.DAO
 
 data class AddressBookModel(var name: String = "undefined",
                             var surname: String = "undefined",

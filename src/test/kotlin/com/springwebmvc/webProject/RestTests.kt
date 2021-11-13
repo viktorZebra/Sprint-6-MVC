@@ -1,6 +1,6 @@
 package com.springwebmvc.webProject
 
-import com.springwebmvc.webProject.model.AddressBookModel
+import com.springwebmvc.webProject.DAO.AddressBookModel
 import com.springwebmvc.webProject.service.AddressBookService
 import org.assertj.core.api.Assertions.*
 import org.junit.jupiter.api.Assertions.assertEquals

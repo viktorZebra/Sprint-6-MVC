@@ -1,6 +1,6 @@
 package com.springwebmvc.webProject.controller
 
-import com.springwebmvc.webProject.model.AddressBookModel
+import com.springwebmvc.webProject.DAO.AddressBookModel
 import com.springwebmvc.webProject.service.AddressBookService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
